@@ -84,6 +84,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "HTML", icon: "🌐", proficiency: "Core" },
       { name: "CSS", icon: "🎨", proficiency: "Core" },
       { name: "JavaScript", icon: "🟨", proficiency: "Advanced" },
+      { name: "Vue.js", icon: "💚", proficiency: "Familiar" },
       { name: "Flutter", icon: "📱", proficiency: "Familiar" },
     ],
   },
@@ -92,6 +93,8 @@ export const skillCategories: SkillCategory[] = [
     items: [
       { name: "PHP", icon: "🐘", proficiency: "Advanced" },
       { name: "Python", icon: "🐍", proficiency: "Advanced" },
+      { name: "Java", icon: "☕", proficiency: "Familiar" },
+      { name: "Django", icon: "🎷", proficiency: "Familiar" },
       { name: "Fullstack Web Development", icon: "🧩", proficiency: "Core" },
     ],
   },
@@ -99,7 +102,9 @@ export const skillCategories: SkillCategory[] = [
     category: "Database & Infra",
     items: [
       { name: "PostgreSQL", icon: "🐘", proficiency: "Advanced" },
+      { name: "MySQL", icon: "🐬", proficiency: "Familiar" },
       { name: "Database Management", icon: "🗄️", proficiency: "Core" },
+      { name: "Jenkins", icon: "🔧", proficiency: "Familiar" },
     ],
   },
   {
@@ -122,7 +127,7 @@ export const experiences: Experience[] = [
     startDate: "Feb 2025",
     endDate: "Present",
     highlights: [
-      "Mengembangkan dan memelihara sistem data internal berbasis PostgreSQL, termasuk sistem perjalanan dinas (lihat proyek Sistem Perjalanan Dinas).",
+      "Mengembangkan dan memelihara sistem data internal berbasis PostgreSQL.",
     ],
     technologies: ["PostgreSQL", "PHP", "JavaScript"],
   },
