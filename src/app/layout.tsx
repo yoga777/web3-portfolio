@@ -18,9 +18,131 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://web3-portfolio-eta-lemon.vercel.app";
+
+// SEO description (157 chars): correct name first; the common "Yoga"
+// spelling appears once, naturally, so the site is also found for it.
+const SITE_DESCRIPTION =
+  "Portofolio resmi Yuga Adi Kusuma (sering ditulis Yoga Adi Kusuma), Full Stack Developer asal Jombang dengan keahlian PHP, JavaScript, Python, dan PostgreSQL.";
+
 export const metadata: Metadata = {
-  title: `${profile.name} — ${profile.role}`,
-  description: profile.bio,
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${profile.name} — ${profile.role}`,
+    template: `%s | ${profile.name}`,
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "Yuga Adi Kusuma",
+    "Yoga Adi Kusuma",
+    "Portofolio Yuga Adi Kusuma",
+    "Full Stack Developer Jombang",
+    "Programmer Jombang",
+    "IT Developer",
+    "Full Stack Developer",
+    "Web Developer Jombang",
+    "PHP Developer Indonesia",
+    "PostgreSQL Developer",
+  ],
+  authors: [{ name: profile.name, url: SITE_URL }],
+  creator: profile.name,
+  publisher: profile.name,
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "profile",
+    locale: "id_ID",
+    url: SITE_URL,
+    siteName: `${profile.name} — Portofolio`,
+    title: `${profile.name} — ${profile.role}`,
+    description: SITE_DESCRIPTION,
+    firstName: "Yuga Adi",
+    lastName: "Kusuma",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${profile.name} — ${profile.role}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${profile.name} — ${profile.role}`,
+    description: SITE_DESCRIPTION,
+    images: ["/twitter-image"],
+  },
+  // Google Search Console verification: the owner pastes the code from
+  // Search Console into the NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION env var
+  // (see .env.example). Nothing is hardcoded here on purpose.
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
+};
+
+// Structured data (schema.org): Person + WebSite. The "Yoga" spelling is
+// declared as alternateName only — the owner's correct name is "Yuga".
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: "Yuga Adi Kusuma",
+      alternateName: "Yoga Adi Kusuma",
+      url: SITE_URL,
+      image: `${SITE_URL}/opengraph-image`,
+      description: SITE_DESCRIPTION,
+      jobTitle: "Full Stack Developer",
+      worksFor: {
+        "@type": "Organization",
+        name: "PT Nusantara Jaya Raya Mujur",
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Jombang",
+        addressRegion: "Jawa Timur",
+        addressCountry: "ID",
+      },
+      email: `mailto:${profile.email}`,
+      sameAs: [
+        profile.socials.github,
+        "https://yoga777.github.io/lowongan-it-surabaya-sidoarjo/",
+      ],
+      knowsAbout: [
+        "PHP",
+        "JavaScript",
+        "Python",
+        "PostgreSQL",
+        "Flutter",
+        "HTML",
+        "CSS",
+        "Web Development",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "Yuga Adi Kusuma — Portofolio",
+      description: SITE_DESCRIPTION,
+      inLanguage: "id-ID",
+      about: { "@id": `${SITE_URL}/#person` },
+    },
+  ],
 };
 
 // Runs before first paint (next/script "beforeInteractive" is injected into
@@ -42,6 +164,10 @@ export default function RootLayout({
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInitScript}
         </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ThemeProvider>
           <Web3Provider>
             <Navbar />
