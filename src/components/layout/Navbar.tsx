@@ -41,9 +41,8 @@ export function Navbar() {
             // eslint-disable-next-line @next/next/no-img-element
             <img src={ensAvatar} alt="" className="h-7 w-7 rounded-full" />
           ) : (
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">
-              {profile.name.charAt(0)}
-            </span>
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src="/logo-mark.svg" alt="Logo Yuga Adi Kusuma" className="h-8 w-8" />
           )}
           <span className="max-w-[38vw] truncate">{logoLabel}</span>
         </a>
