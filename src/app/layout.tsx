@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://web3-portfolio-eta-lemon.vercel.app";
+const SITE_URL = "https://www.yogalab.my.id";
 
 // SEO description (157 chars): correct name first; the common "Yoga"
 // spelling appears once, naturally, so the site is also found for it.
@@ -85,11 +85,13 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: ["/twitter-image"],
   },
-  // Google Search Console verification: the owner pastes the code from
-  // Search Console into the NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION env var
-  // (see .env.example). Nothing is hardcoded here on purpose.
+  // Google Search Console verification for yogalab.my.id (code provided by
+  // the owner on 2026-11-24; the value is public in the page source by
+  // design). An env var can override it without a code change.
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    google:
+      process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ??
+      "c4Mn1vKC4YpZsWeMssHJpke-qNGmMDPKcayUQ1Phx3s",
   },
 };
 
