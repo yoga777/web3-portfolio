@@ -75,7 +75,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
         {toasts.map((t) => (
           <div
             key={t.id}
-            className="pointer-events-auto rounded-xl border border-zinc-700 bg-zinc-900 p-4 shadow-xl"
+            className="pointer-events-auto rounded-xl border border-zinc-200 bg-white p-4 shadow-xl dark:border-zinc-700 dark:bg-zinc-900"
             role="status"
           >
             <div className="flex items-start justify-between gap-3">
@@ -85,20 +85,20 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               <button
                 onClick={() => dismiss(t.id)}
                 aria-label="Tutup notifikasi"
-                className="text-zinc-500 hover:text-white"
+                className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white"
               >
                 ✕
               </button>
             </div>
             {t.description && (
-              <p className="mt-1 break-words text-xs text-zinc-400">{t.description}</p>
+              <p className="mt-1 break-words text-xs text-zinc-600 dark:text-zinc-400">{t.description}</p>
             )}
             {t.explorerUrl && (
               <a
                 href={t.explorerUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-2 inline-block text-xs font-medium text-blue-400 hover:underline"
+                className="mt-2 inline-block text-xs font-medium text-blue-600 hover:underline dark:text-blue-400"
               >
                 Lihat di Block Explorer ↗
               </a>

@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 export function HeroSection() {
   return (
     <section id="about" className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(37,99,235,0.18),transparent)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(37,99,235,0.10),transparent)] dark:bg-[radial-gradient(60%_50%_at_50%_0%,rgba(37,99,235,0.18),transparent)]" />
       <div className="relative mx-auto flex w-full max-w-6xl flex-col items-start gap-6 px-4 py-20 sm:px-6 md:py-28">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -46,7 +46,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.16 }}
-          className="max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg"
+          className="max-w-2xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-lg"
         >
           {profile.bio}
         </motion.p>
@@ -80,14 +80,14 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.32 }}
-          className="flex flex-wrap items-center gap-4 text-sm text-zinc-400"
+          className="flex flex-wrap items-center gap-4 text-sm text-zinc-600 dark:text-zinc-400"
         >
           {profile.socials.github && (
             <a
               href={profile.socials.github}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-white"
+              className="hover:text-zinc-950 dark:hover:text-white"
             >
               GitHub ↗
             </a>
@@ -97,7 +97,7 @@ export function HeroSection() {
               href={profile.socials.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-white"
+              className="hover:text-zinc-950 dark:hover:text-white"
             >
               LinkedIn ↗
             </a>
@@ -107,7 +107,7 @@ export function HeroSection() {
               href={profile.socials.twitter}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-white"
+              className="hover:text-zinc-950 dark:hover:text-white"
             >
               X / Twitter ↗
             </a>
@@ -117,7 +117,7 @@ export function HeroSection() {
               href={`https://basescan.org/address/${profile.ownerWallet}`}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-white"
+              className="hover:text-zinc-950 dark:hover:text-white"
             >
               Block Explorer ↗
             </a>

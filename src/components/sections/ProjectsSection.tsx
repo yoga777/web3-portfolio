@@ -40,7 +40,7 @@ function ProjectCard({
           className="h-40 w-full object-cover"
         />
       ) : (
-        <div className="flex h-40 w-full items-center justify-center bg-gradient-to-br from-blue-950 via-zinc-900 to-zinc-950 px-6 text-center text-sm font-medium text-zinc-400">
+        <div className="flex h-40 w-full items-center justify-center bg-gradient-to-br from-blue-100 via-zinc-100 to-zinc-50 px-6 text-center text-sm font-medium text-zinc-600 dark:from-blue-950 dark:via-zinc-900 dark:to-zinc-950 dark:text-zinc-400">
           {project.title}
         </div>
       )}
@@ -49,7 +49,7 @@ function ProjectCard({
           <h3 className="text-base font-semibold">{project.title}</h3>
           {project.featured && <Badge variant="default">Featured</Badge>}
         </div>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-400">{project.summary}</p>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{project.summary}</p>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {project.techStack.map((t) => (
             <Badge key={t} variant="outline">
@@ -62,7 +62,7 @@ function ProjectCard({
             href={`${explorerFor(project.chainId)}/address/${project.contractAddress}`}
             target="_blank"
             rel="noreferrer"
-            className="mt-3 break-all font-mono text-[11px] text-blue-400 hover:underline"
+            className="mt-3 break-all font-mono text-[11px] text-blue-600 hover:underline dark:text-blue-400"
           >
             Contract: {project.contractAddress}
           </a>
@@ -101,10 +101,10 @@ export default function ProjectsSection() {
   );
 
   return (
-    <section id="projects" className="border-t border-zinc-900">
+    <section id="projects" className="border-t border-zinc-200 dark:border-zinc-900">
       <div className="mx-auto w-full max-w-6xl px-4 py-20 sm:px-6">
         <h2 className="text-3xl font-bold tracking-tight">Projects Showcase</h2>
-        <p className="mt-2 max-w-2xl text-sm text-zinc-400">
+        <p className="mt-2 max-w-2xl text-sm text-zinc-600 dark:text-zinc-400">
           Proyek nyata yang pernah dibuat pemilik portofolio — tanpa tautan demo/GitHub
           karangan. Kategori Web3 / Mobile akan terisi saat ada proyek riil di kategori itu.
         </p>
@@ -123,7 +123,7 @@ export default function ProjectsSection() {
         </div>
 
         {visible.length === 0 ? (
-          <p className="mt-10 rounded-xl border border-dashed border-zinc-800 p-8 text-center text-sm text-zinc-500">
+          <p className="mt-10 rounded-xl border border-dashed border-zinc-300 p-8 text-center text-sm text-zinc-600 dark:border-zinc-800 dark:text-zinc-500">
             Belum ada proyek riil di kategori ini.
           </p>
         ) : (
@@ -152,21 +152,21 @@ export default function ProjectsSection() {
         title={selected?.title ?? ""}
       >
         {selected && (
-          <div className="flex flex-col gap-5 text-sm leading-relaxed text-zinc-300">
+          <div className="flex flex-col gap-5 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
             <p>{selected.description}</p>
             {selected.caseStudy && (
               <>
                 <div>
-                  <h4 className="mb-1 font-semibold text-white">Problem</h4>
-                  <p className="text-zinc-400">{selected.caseStudy.problem}</p>
+                  <h4 className="mb-1 font-semibold text-zinc-950 dark:text-white">Problem</h4>
+                  <p className="text-zinc-600 dark:text-zinc-400">{selected.caseStudy.problem}</p>
                 </div>
                 <div>
-                  <h4 className="mb-1 font-semibold text-white">Architecture</h4>
-                  <p className="text-zinc-400">{selected.caseStudy.architecture}</p>
+                  <h4 className="mb-1 font-semibold text-zinc-950 dark:text-white">Architecture</h4>
+                  <p className="text-zinc-600 dark:text-zinc-400">{selected.caseStudy.architecture}</p>
                 </div>
                 <div>
-                  <h4 className="mb-1 font-semibold text-white">Solution</h4>
-                  <p className="text-zinc-400">{selected.caseStudy.solution}</p>
+                  <h4 className="mb-1 font-semibold text-zinc-950 dark:text-white">Solution</h4>
+                  <p className="text-zinc-600 dark:text-zinc-400">{selected.caseStudy.solution}</p>
                 </div>
               </>
             )}

@@ -75,7 +75,7 @@ function EndorseButton({ skillName }: { skillName: string }) {
         <Button size="sm" variant="outline" disabled title="Smart contract belum di-deploy">
           Endorse Skill
         </Button>
-        <span className="text-[11px] text-zinc-500">Smart contract belum di-deploy</span>
+        <span className="text-[11px] text-zinc-600 dark:text-zinc-500">Smart contract belum di-deploy</span>
       </div>
     );
   }
@@ -100,7 +100,7 @@ function EndorseButton({ skillName }: { skillName: string }) {
       >
         {alreadyEndorsed ? "✓ Sudah di-endorse" : isPending ? "Memproses…" : "Endorse Skill"}
       </Button>
-      <span className="text-[11px] text-zinc-500">
+      <span className="text-[11px] text-zinc-600 dark:text-zinc-500">
         {!isConnected
           ? "Hubungkan wallet untuk endorse"
           : count !== null
@@ -113,10 +113,10 @@ function EndorseButton({ skillName }: { skillName: string }) {
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="border-t border-zinc-900">
+    <section id="skills" className="border-t border-zinc-200 dark:border-zinc-900">
       <div className="mx-auto w-full max-w-6xl px-4 py-20 sm:px-6">
         <h2 className="text-3xl font-bold tracking-tight">Tech Stack & Skills</h2>
-        <p className="mt-2 max-w-2xl text-sm text-zinc-400">
+        <p className="mt-2 max-w-2xl text-sm text-zinc-600 dark:text-zinc-400">
           Skill dari CV asli pemilik portofolio. Tombol endorsement terhubung ke smart
           contract PortfolioRegistry — satu wallet hanya bisa endorse satu kali per skill.
         </p>
@@ -137,7 +137,7 @@ export default function SkillsSection() {
                     {cat.items.map((skill) => (
                       <li
                         key={skill.name}
-                        className="flex items-center justify-between gap-3 border-b border-zinc-800/70 pb-4 last:border-0 last:pb-0"
+                        className="flex items-center justify-between gap-3 border-b border-zinc-200 pb-4 last:border-0 last:pb-0 dark:border-zinc-800/70"
                       >
                         <div className="flex items-center gap-3">
                           <span aria-hidden className="text-xl">

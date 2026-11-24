@@ -15,8 +15,8 @@ export function Footer() {
   const { data: blockNumber, isError } = useBlockNumber({ watch: true });
 
   return (
-    <footer className="border-t border-zinc-800 bg-zinc-950">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-4 py-8 text-xs text-zinc-500 sm:px-6 md:flex-row md:items-center md:justify-between">
+    <footer className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-4 py-8 text-xs text-zinc-600 dark:text-zinc-500 sm:px-6 md:flex-row md:items-center md:justify-between">
         <p>
           © {new Date().getFullYear()} {profile.name}. All rights reserved.
         </p>

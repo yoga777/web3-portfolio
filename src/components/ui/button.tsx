@@ -5,11 +5,14 @@ type Variant = "default" | "secondary" | "outline" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
-  default: "bg-blue-600 text-white hover:bg-blue-500 disabled:bg-zinc-700 disabled:text-zinc-400",
-  secondary: "bg-zinc-800 text-zinc-100 hover:bg-zinc-700 disabled:text-zinc-500",
+  default:
+    "bg-blue-600 text-white hover:bg-blue-500 disabled:bg-zinc-300 disabled:text-zinc-500 dark:disabled:bg-zinc-700 dark:disabled:text-zinc-400",
+  secondary:
+    "bg-zinc-100 text-zinc-900 hover:bg-zinc-200 disabled:text-zinc-400 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 dark:disabled:text-zinc-500",
   outline:
-    "border border-zinc-700 bg-transparent text-zinc-100 hover:bg-zinc-800 disabled:text-zinc-500",
-  ghost: "text-zinc-300 hover:bg-zinc-800 hover:text-white disabled:text-zinc-600",
+    "border border-zinc-300 bg-transparent text-zinc-900 hover:bg-zinc-100 disabled:text-zinc-400 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:disabled:text-zinc-500",
+  ghost:
+    "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950 disabled:text-zinc-400 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-white dark:disabled:text-zinc-600",
 };
 
 const sizes: Record<Size, string> = {
